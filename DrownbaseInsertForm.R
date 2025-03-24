@@ -1,13 +1,6 @@
-library(shiny)
-library(shinydashboard)
-library(DBI)
-library(odbc)
-library(lubridate)
-library(stringr)
-library(leaflet)
-library(shinyBS)
-library(sf)
-library(geosphere)
+pkgs <- c("shiny", "shinydashboard", "DBI", "odbc", "lubridate", "stringr", "leaflet", "shinyBS", "sf", "geosphere")
+install.packages(setdiff(pkgs, rownames(installed.packages())))
+lapply(pkgs, library, character.only = TRUE)
 
 GetWSNZAzureConnection <- function() {
   dbConnect(
